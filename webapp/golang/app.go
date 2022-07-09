@@ -219,7 +219,7 @@ func makePosts(results []Post, csrfToken string, allComments bool) ([]Post, erro
 			posts = append(posts, p)
 		}
 		*/
-		
+
 		/*
 		if len(posts) >= postsPerPage {
 			break
@@ -572,7 +572,7 @@ func getPostsID(w http.ResponseWriter, r *http.Request) {
 	}
 
 	results := []Post{}
-	err = db.Select(&results, "SELECT p.`id`, p.`user_id`, p.`body`, p.`mime`, p.`created_at`, u.`account_name` FROM `posts` AS p JOIN `users` AS u ON p.`user_id` = u.`id` WHERE u.`del_flg` = 0 AND p.`id` = ? ORDER BY p.`created_at` DESC LIMIT 20", user.ID)
+	err = db.Select(&results, "SELECT p.`id`, p.`user_id`, p.`body`, p.`mime`, p.`created_at`, u.`account_name` FROM `posts` AS p JOIN `users` AS u ON p.`user_id` = u.`id` WHERE u.`del_flg` = 0 AND p.`id` = ? ORDER BY p.`created_at` DESC LIMIT 20", pid)
 	/*
 	err = db.Select(&results, "SELECT * FROM `posts` WHERE `id` = ?", pid)
 	*/
