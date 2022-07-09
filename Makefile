@@ -1,7 +1,7 @@
 include .env
 
 build:
-	cd webapp/golang/ && make
+	cd webapp/golang/ && go build -o app
 
 push:
 	ssh isucon@${WEB_2_IP} "sudo systemctl stop isu-go"
